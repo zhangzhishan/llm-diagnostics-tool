@@ -1,0 +1,70 @@
+{
+  "name": "llm-background-diagnostics",
+  "displayName": "LLM Background Diagnostics",
+  "description": "VS Code extension for automatic background diagnostics using LLMs.",
+  "publisher": "my-publisher",
+  "version": "0.1.2",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/zhangzhishan/llm-diagnostics-tool.git"
+  },
+  "engines": {
+    "vscode": "^1.100.0"
+  },
+  "categories": [
+    "Linters",
+    "Programming Languages"
+  ],
+  "activationEvents": [
+    "onLanguage"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "configuration": {
+      "title": "LLM Bug Detector",
+      "properties": {
+        "llmBugDetector.enabled": {
+          "type": "boolean",
+          "default": true,
+          "description": "Enables or disables the automatic background analysis."
+        },
+        "llmBugDetector.model": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "default": null,
+          "description": "(If VS Code API allows selection) Specifies the LLM model to use for analysis. If empty, the extension may attempt to select a default model."
+        },
+        "llmBugDetector.analysisInterval": {
+          "type": [
+            "number",
+            "null"
+          ],
+          "default": 3000,
+          "description": "Sets the interval (in milliseconds) between background analyses after a document change. (Default: 3000ms)"
+        },
+        "llmBugDetector.languages": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "default": [],
+          "description": "Specifies the programming languages for which the analysis should be active (e.g., [\"typescript\", \"python\"]). An empty array means all languages where the extension is activated."
+        }
+      }
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p . && copyfiles -u 1 src/prompt-template.md out",
+    "watch": "tsc -watch -p ."
+  },
+  "devDependencies": {
+    "@types/node": "^22.15.24",
+    "@types/vscode": "^1.100.0",
+    "typescript": "^5.8.3",
+    "copyfiles": "^2.4.1"
+  }
+}
