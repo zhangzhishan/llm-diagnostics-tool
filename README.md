@@ -65,6 +65,25 @@ You can adjust the extension settings in VS Code User or Workspace settings unde
 
 - **`llmBugDetector.model`** (string or null, default: `null`)
   - Specifies the LLM model to use for analysis (when VS Code API allows selection)
+  - Available Models for `llmBugDetector.model`
+    - GPT 3.5 Turbo : `gpt-3.5-turbo`
+    - GPT-4o mini : `gpt-4o-mini`
+    - GPT 4 : `gpt-4`
+    - GPT 4 Turbo : `gpt-4-0125-preview`
+    - GPT-4o : `gpt-4o`
+    - o1 (Preview) : `o1`
+    - o3-mini : `o3-mini`
+    - Claude 3.5 Sonnet : `claude-3.5-sonnet`
+    - Claude 3.7 Sonnet : `claude-3.7-sonnet`
+    - Claude 3.7 Sonnet Thinking : `claude-3.7-sonnet-thought`
+    - Claude Sonnet 4 : `claude-sonnet-4`
+    - Claude Opus 4 : `claude-opus-4`
+    - Gemini 2.0 Flash : `gemini-2.0-flash-001`
+    - Gemini 2.5 Pro (Preview) : `gemini-2.5-pro`
+    - GPT-4.5 (Preview) : `gpt-4.5-preview`
+    - o3 (Preview) : `o3`
+    - o4-mini (Preview) : `o4-mini`
+    - GPT-4.1 : `gpt-4.1`
 
 - **`llmBugDetector.analysisInterval`** (number, default: `3000`)
   - Sets the interval (in milliseconds) between background analyses after a document change
