@@ -2,45 +2,9 @@
 
 This VS Code extension automatically performs background diagnostics on currently open files using Large Language Models (LLMs).
 
-## Prerequisites
+## Installing the Extension
 
-- Node.js and npm installed
-- VS Code Extension Development tools: Install `vsce` globally with:
-  ```bash
-  npm install -g @vscode/vsce
-  ```
-
-## Building the Extension
-
-1. Navigate to the `llm-background-diagnostics-extension` directory:
-   ```bash
-   cd llm-background-diagnostics-extension
-   ```
-
-2. Install dependencies:
-   ```bash
-   npm install
-   ```
-
-3. Compile TypeScript:
-   ```bash
-   npm run compile
-   ```
-
-4. Package the extension:
-   ```bash
-   vsce package
-   ```
-   This will create a `.vsix` file in the current directory.
-
-## Installing the Extension (Sideloading)
-
-1. Open VS Code
-2. Go to the Extensions view (Ctrl+Shift+X or Cmd+Shift+X on Mac)
-3. Click the "..." (More Actions) menu in the Extensions view sidebar
-4. Select "Install from VSIX..."
-5. Choose the `.vsix` file generated in the previous step
-6. Reload VS Code when prompted
+The extension could be installed from the VS Code Marketplace: [LLM Background Diagnostics](https://marketplace.visualstudio.com/items?itemName=zhangzhishan.llm-background-diagnostics).
 
 ## Using the Extension
 
@@ -99,13 +63,6 @@ You can adjust the extension settings in VS Code User or Workspace settings unde
 2. Search for "LLM Bug Detector"
 3. Modify the settings as needed
 
-## Development
-
-For development purposes, you can also:
-
-- **Watch mode:** Run `npm run watch` to automatically recompile TypeScript files on changes
-- **Debug:** Use F5 in VS Code to launch a new Extension Development Host window for testing
-
 ## Troubleshooting
 
 - If diagnostics don't appear, check that the extension is enabled in the Extensions view
@@ -116,3 +73,42 @@ For development purposes, you can also:
 
 - The response line numbers from the LLM are not exactly the same as the VS Code line numbers, so there may be some discrepancies in diagnostics.
 - There is only one file being diagnosed at a time, so there are some bugs that are not being diagnosed.
+
+## Development
+
+For development purposes, you can also:
+
+- **Watch mode:** Run `npm run watch` to automatically recompile TypeScript files on changes
+- **Debug:** Use F5 in VS Code to launch a new Extension Development Host window for testing
+
+
+## Prerequisites
+
+- Node.js and npm installed
+- VS Code Extension Development tools: Install `vsce` globally with:
+  ```bash
+  npm install -g @vscode/vsce
+  ```
+
+## Building the Extension
+
+1. Navigate to the `llm-background-diagnostics-extension` directory:
+   ```bash
+   cd llm-background-diagnostics-extension
+   ```
+
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
+
+3. Compile TypeScript:
+   ```bash
+   npm run compile
+   ```
+
+4. Package the extension:
+   ```bash
+   vsce package
+   ```
+   This will create a `.vsix` file in the current directory.
