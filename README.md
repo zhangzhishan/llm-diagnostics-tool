@@ -111,3 +111,8 @@ For development purposes, you can also:
 - If diagnostics don't appear, check that the extension is enabled in the Extensions view
 - Verify that your file type is included in the `llmBugDetector.languages` setting (or leave it empty for all languages)
 - Check the Developer Console (Help > Toggle Developer Tools) for any error messages
+
+## Some limitations
+
+- The response line numbers from the LLM are not exactly the same as the VS Code line numbers, so there may be some discrepancies in diagnostics.
+- There is only one file being diagnosed at a time, so there are some bugs that are not being diagnosed.
