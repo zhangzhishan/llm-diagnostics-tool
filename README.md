@@ -10,13 +10,12 @@ The extension could be installed from the VS Code Marketplace: [LLM Background D
 
 Once installed and enabled, the extension will:
 
-- Automatically analyze open files in the background if they match the configured languages (or all languages if `llmBugDetector.languages` is empty)
-- After making changes to a supported file, wait for the configured delay (`llmBugDetector.analysisInterval`)
-- Display mock diagnostics on lines 2 and 5 (if the file has enough lines) with messages like:
-  - "Mock LLM: Potential null pointer..."
-  - "Mock LLM: Unused variable..."
+- Automatically analyze open files in the background if they match the configured languages (or all languages if `llmBugDetector.languages` is empty).
+- After making changes to a supported file, wait for the configured delay (`llmBugDetector.analysisInterval`).
+- The extension then queries the configured Large Language Model via the VS Code LLM API to identify potential issues.
+- Diagnostics are displayed in the editor, highlighting potential bugs or areas for improvement.
 
-**Note:** These diagnostics are currently placeholders, as the actual LLM integration is pending a future VS Code API.
+**Note:** This extension relies on the VS Code Language Model API for its functionality. Ensure your VS Code version supports this API.
 
 ## Configuration
 
@@ -28,7 +27,7 @@ You can adjust the extension settings in VS Code User or Workspace settings unde
   - Enables or disables the automatic background analysis
 
 - **`llmBugDetector.model`** (string or null, default: `null`)
-  - Specifies the LLM model to use for analysis (when VS Code API allows selection)
+  - Specifies the LLM model to use for analysis via the VS Code LLM API. The availability of models depends on what your VS Code installation and its LM provider offer.
   - Available Models for `llmBugDetector.model`
     - GPT 3.5 Turbo : `gpt-3.5-turbo`
     - GPT-4o mini : `gpt-4o-mini`
