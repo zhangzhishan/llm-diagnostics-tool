@@ -3,7 +3,7 @@
   "displayName": "LLM Background Diagnostics",
   "description": "VS Code extension for automatic background diagnostics using LLMs.",
   "publisher": "zhangzhishan",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "license": "MIT",
   "icon": "resources/icon.png",
   "repository": {
