@@ -2,6 +2,8 @@
 
 This VS Code extension automatically performs background diagnostics on currently open files using Large Language Models (LLMs).
 
+![Example result](resources/example.png)
+
 ## Installing the Extension
 
 The extension could be installed from the VS Code Marketplace: [LLM Background Diagnostics](https://marketplace.visualstudio.com/items?itemName=zhangzhishan.llm-background-diagnostics).
@@ -13,7 +15,9 @@ Once installed and enabled, the extension will:
 - Automatically analyze open files in the background if they match the configured languages (or all languages if `llmBugDetector.languages` is empty).
 - After making changes to a supported file, wait for the configured delay (`llmBugDetector.analysisInterval`).
 - The extension then queries the configured Large Language Model via the VS Code LLM API to identify potential issues.
-- Diagnostics are displayed in the editor, highlighting potential bugs or areas for improvement.
+- Diagnostics are displayed in the editor, highlighting potential bugs or areas for improvement from the LLM with messages like:
+  - "Assigning a string to an integer variable."
+  - "Storing address of vector element that may be invalidated."
 
 **Note:** This extension relies on the VS Code Language Model API for its functionality. Ensure your VS Code version supports this API.
 
@@ -26,8 +30,8 @@ You can adjust the extension settings in VS Code User or Workspace settings unde
 - **`llmBugDetector.enabled`** (boolean, default: `true`)
   - Enables or disables the automatic background analysis
 
-- **`llmBugDetector.model`** (string or null, default: `null`)
-  - Specifies the LLM model to use for analysis via the VS Code LLM API. The availability of models depends on what your VS Code installation and its LM provider offer.
+- **`llmBugDetector.model`** (string or null, default: `"gemini-2.5-pro"`)
+  - Specifies the LLM model to use for analysis. If left empty, it defaults to `gemini-2.5-pro`. (This behavior is active when the VS Code API allows model selection).
   - Available Models for `llmBugDetector.model`
     - GPT 3.5 Turbo : `gpt-3.5-turbo`
     - GPT-4o mini : `gpt-4o-mini`
@@ -111,3 +115,7 @@ For development purposes, you can also:
    vsce package
    ```
    This will create a `.vsix` file in the current directory.
+
+## Changelog
+
+See [CHANGELOG.md](CHANGELOG.md:1) for details.
