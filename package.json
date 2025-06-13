@@ -3,7 +3,7 @@
   "displayName": "LLM Background Diagnostics",
   "description": "VS Code extension for automatic background diagnostics using LLMs.",
   "publisher": "zhangzhishan",
-  "version": "0.1.5",
+  "version": "0.1.6",
   "license": "MIT",
   "icon": "resources/icon.png",
   "repository": {
@@ -53,6 +53,24 @@
           },
           "default": [],
           "description": "Specifies the programming languages for which the analysis should be active (e.g., [\"typescript\", \"python\"]). An empty array means all languages where the extension is activated."
+        },
+        "llmBugDetector.excludedFileExtensions": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "default": [
+            ".txt",
+            ".md",
+            ".json",
+            ".xml",
+            ".yaml",
+            ".yml",
+            ".log",
+            ".ini",
+            ".csv"
+          ],
+          "description": "Specifies file extensions to exclude from analysis (e.g., [\".txt\", \".md\"])."
         }
       }
     }

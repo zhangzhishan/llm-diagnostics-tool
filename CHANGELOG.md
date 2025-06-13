@@ -1,5 +1,8 @@
 # Changelog
 
+### 0.1.6 - 2025-06-13
+- Feature: Add configuration to exclude files by extension.
+
 ### 0.1.5 - 2025-06-04
 - Feature: Start diagnostics when a file is first opened.
 

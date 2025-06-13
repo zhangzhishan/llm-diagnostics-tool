@@ -47,6 +47,14 @@ export class FileContentMonitoringService implements vscode.Disposable {
             return;
         }
 
+        // Check if the current document's file extension is excluded
+        const excludedExtensions = this.configurationService.getExcludedFileExtensions();
+        const fileExtension = vscode.workspace.asRelativePath(document.uri).split('.').pop();
+        if (fileExtension && excludedExtensions.includes(`.${fileExtension}`)) {
+            this.outputChannel.appendLine(`[INFO] File extension '.${fileExtension}' is excluded from analysis. Skipping analysis for: ${document.uri.fsPath}`);
+            return;
+        }
+
         const filePath = document.uri.fsPath;
         const currentContent = document.getText();
         const currentHash = computeSha256(currentContent);

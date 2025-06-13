@@ -46,4 +46,20 @@ export class ConfigurationService {
     public getLlmModelId(): string {
         return vscode.workspace.getConfiguration(ConfigurationService.CONFIG_SECTION).get<string>('model', '');
     }
+
+    /**
+     * Gets the list of file extensions to exclude from analysis.
+     * @returns array of file extensions (e.g., [".txt", ".md"])
+     */
+    public getExcludedFileExtensions(): string[] {
+        return vscode.workspace.getConfiguration(ConfigurationService.CONFIG_SECTION).get<string[]>('excludedFileExtensions', [
+            ".txt",
+            ".md",
+            ".json",
+            ".xml",
+            ".yaml",
+            ".yml",
+            ".log"
+        ]);
+    }
 }
